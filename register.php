@@ -1,3 +1,34 @@
+<?php
+session_start(); // Ensure session is started
+
+include("connection.php");
+include("function.php");
+
+if($_SERVER['REQUEST_METHOD'] == "POST") {
+    //something is posted
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    if(!empty($username) && !empty($password) && !is_numeric($username)) {
+        //save to database
+        $users_id = random_num(20);
+        $query = "INSERT INTO users (users_id, username, password) VALUES ('$users_id', '$username', '$password')";
+
+        $result = mysqli_query($conn, $query);
+
+        if($result) {
+            header("Location: login.php");
+            exit(); // Use exit instead of die
+        } else {
+            echo "Failed to register. Please try again later.";
+        }
+    } else {
+        echo "Please enter valid information.";
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,51 +48,27 @@
         <div class="box form-box">
             <header>Sign Up</header>
             <form action="" method="post">
-                <div class="field input">
-                    <label for="firstname" >Firstname</label>
-                    <input type="text" name="email" id="username" autocomplete="off" required>
-
-                </div>
-
-
-                <div class="field input">
-                    <label for="Lastname" >Lastname</label>
-                    <input type="text" name="email" id="username" autocomplete="off" required>
-
-                </div>
+              
 
                 <div class="field input">
                     <label for="email" >username</label>
-                    <input type="text" name="email" id="username" autocomplete="off" required>
-
-                </div>
-                
-
-                <div class="field input">
-                    <label for="email" >Email</label>
-                    <input type="text" name="username" id="email" autocomplete="off" required>
-
-                </div>
-
-                <div class="field input">
-                    <label for="username" >Age</label>
-                    <input type="text" name="username" id="username" autocomplete="off" required>
+                    <input type="username" name="username" id="username" autocomplete="off" required>
 
                 </div>
 
                 <div class="field input">
                     <label for="password" >password</label>
-                    <input type="text" name="password" id="password" autocomplete="off" required>
+                    <input type="password" name="password" id="password" autocomplete="off" required>
                     
                 </div>
 
                 <div class="field">
                     
-                    <input type="submit" class="btn" name="submit" value="Login" required>
+                    <input type="submit" class="btn" name="submit" value="Sign up" required>
                     
                 </div>
                 <div class="links">
-                    Already Have Account? <a href="login.html">Sign In</a>
+                    Already Have Account? <a href="login.php">Sign In</a>
                 </div>
 
             </form>

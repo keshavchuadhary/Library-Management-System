@@ -245,7 +245,7 @@ body{
         }
     .header .header-1 .search-form{
         position: absolute;
-        top:8%;
+        top:7%;
         right: 3rem;
         width: 90%;
         box-shadow: var(--box-shadow);
@@ -262,6 +262,17 @@ body{
 @media (max-width:450px){
     html{
         font-size: 50%;
+    }
+    .header .header-1 .search-form{
+        position: absolute;
+        top:7%;
+        right: 3rem;
+        width: 90%;
+        box-shadow: var(--box-shadow);
+
+    }
+    .header .header-1 .search-form.active{
+        top: 155%;
     }
    
 }

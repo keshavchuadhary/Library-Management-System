@@ -1,3 +1,14 @@
+<?php
+  
+  
+  include("connection.php");
+  include("function.php");
+  
+  $user_data = check_login($conn);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +34,7 @@
                 <div id="search-btn" class="fas fa-search"></div>
                 
                 <a href="#" class="fas fa-shopping-cart"></a>
-                <a href="login.html" class="fas fa-user" id="login-btn"></a>
+                <a href="login.php" class="fas fa-user" id="login-btn"></a>
             </div> 
         </div>
         <div class="header-2">

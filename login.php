@@ -1,3 +1,37 @@
+<?php
+session_start(); // Ensure session is started
+
+include("connection.php");
+include("function.php");
+
+if(isset($_POST['submit'])) {
+    //something is posted
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    if(!empty($username) && !empty($password) && !is_numeric($username)) {
+        //read from database
+        $query = "SELECT * FROM users WHERE username = '$username' LIMIT 1";
+        $result = mysqli_query($conn, $query);
+
+        if($result && mysqli_num_rows($result) > 0) {
+            $user_data = mysqli_fetch_assoc($result);
+            if($user_data['password'] === $password) {
+                $_SESSION['users_id'] = $user_data['users_id'];
+                header('Location: index.php');
+                exit(); // Use exit instead of die
+            }
+        }
+    }
+    echo "Please enter valid information";
+} else {
+    echo "Please enter valid information";
+}
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +60,7 @@
 
                 <div class="field input">
                     <label for="password" >password</label>
-                    <input type="text" name="password" id="password" required>
+                    <input type="password" name="password" id="password" required>
                     
                 </div>
 
@@ -36,7 +70,7 @@
                     
                 </div>
                 <div class="links">
-                    Don't have account? <a href="register.html">Sign Up Now</a>
+                    Don't have account? <a href="register.php">Sign Up Now</a>
                 </div>
 
             </form>

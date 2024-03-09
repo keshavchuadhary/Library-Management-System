@@ -35,6 +35,7 @@
                 
                 <a href="#" class="fas fa-shopping-cart"></a>
                 <a href="login.php" class="fas fa-user" id="login-btn"></a>
+                <a href="logout.php">Logout</a>
             </div> 
         </div>
         <div class="header-2">

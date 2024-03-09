@@ -8,26 +8,29 @@
 body{
     background-color: #e4e9f7;
 }
-/* Style for header-2 */
-.header.header-1 {
+.header .header-1 {
     background-color: #333;
     color: #fff;
-    padding: 10px;
-}
-
-/* Style for navbar */
-.header.header-2.navbar {
+    padding: 20px;
+    text-align: left;
     display: flex;
-    justify-content: flex-end;
+}
+.header .header-2{
+    padding: 10px;
     text-align: right;
-    background-color: #3246C7;
+    padding: 20px;
+}
+.header .header-2 a{
+    background-color: #333;
+    color: aqua;
+    text-align: right;
 }
 
-.navbar a {
+
+.header a {
     color: #fff;
     text-decoration: none;
-    padding: 10px;
-    
+    font-size: 24px;
 }
 
 .container{

@@ -5,28 +5,35 @@ include("connection.php");
 include("function.php");
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {
-    //something is posted
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    // Check if 'email' key exists in $_POST array
+    if(isset($_POST['email'])) {
+        //something is posted
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-    if(!empty($username) && !empty($password) && !is_numeric($username)) {
-        //save to database
-        $users_id = random_num(20);
-        $query = "INSERT INTO users (users_id, username, password) VALUES ('$users_id', '$username', '$password')";
+        if(!empty($username) && !empty($password) && !empty($email) && !is_numeric($username)) {
+            //save to database
+            $users_id = random_num(20);
+            $query = "INSERT INTO users_1 (users_id, username,email, password) VALUES ('$users_id', '$username','$email', '$password')";
 
-        $result = mysqli_query($conn, $query);
+            $result = mysqli_query($conn, $query);
 
-        if($result) {
-            header("Location: login.php");
-            exit(); // Use exit instead of die
+            if($result) {
+                echo "<script>alert('Sign Up Successfully');</script>";
+            } else {
+                echo "<script>alert('Failed to register. Please try again later.');</script>";
+            }
         } else {
-            echo "Failed to register. Please try again later.";
+            echo "<script>alert('Please fill out all fields correctly');</script>";
         }
     } else {
-        echo "Please enter valid information.";
+        echo "<script>alert('Email field is missing');</script>";
     }
 }
 ?>
+
+
 
 
 <!DOCTYPE html>
@@ -48,6 +55,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         <div class="box form-box">
             <header>Sign Up</header>
             <form action="" method="post">
+            
               
 
                 <div class="field input">
@@ -55,11 +63,21 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     <input type="username" name="username" id="username" autocomplete="off" required>
 
                 </div>
+                <div class="field input">
+                    <label for="email" >email</label>
+                    <input type="email" name="email" id="email" autocomplete="off" required>
+                    
+                </div>
 
                 <div class="field input">
                     <label for="password" >password</label>
                     <input type="password" name="password" id="password" autocomplete="off" required>
                     
+                </div>
+
+                <div class="filed input">
+                    <label for="Confirm Password">Confirm Password</label>
+                    <input type="password" id="confirm_password" name="confirmpassword" required>
                 </div>
 
                 <div class="field">

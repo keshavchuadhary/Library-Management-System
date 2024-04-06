@@ -3,7 +3,7 @@ function check_login($conn)
 {
     if(isset($_SESSION['user id'])){
         $id = $_SESSION['user id'];
-        $query = "select * from users where user_id = '$id' limit 1 ";
+        $query = "SELECT * from users_1 where user_id = '$id' Limit 1 ";
 
         $result = mysqli_query($conn, $query);
         if($result && mysqli_num_rows($result) > 0)

@@ -37,8 +37,18 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 90vh;
+    min-height: 100vh;
 }
+.container-back {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.container-back a {
+    color: #007bff;
+    text-decoration: none;
+}
+
 .container.active{
     right: 0;
 } 

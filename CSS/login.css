@@ -9,19 +9,20 @@ body{
     background-color: #e4e9f7;
 }
 /* Style for header-2 */
-.header.header-1 {
+.header .header-2 {
     background-color: #333;
     color: #fff;
     padding: 10px;
+    text-align: right; /* This aligns text content to the right */
 }
 
 /* Style for navbar */
-.header.header-2.navbar {
+.header .header-2 .navbar {
     display: flex;
-    justify-content: flex-end;
-    text-align: right;
-    background-color: #3246C7;
+    justify-content: flex-end; /* This aligns flex items to the end of the container (right in LTR languages) */
+    
 }
+
 
 .navbar a {
     color: #fff;

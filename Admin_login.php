@@ -1,7 +1,47 @@
-<!-- php code -->
+<?php
+session_start();
+
+// Check if the form is submitted
+if(isset($_POST['submit'])) {
+    // Include connection and function files
+    include("connection.php");
+    include("function.php");
+
+    // Retrieve username and password from the form
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Validate username and password (you may want to add more validation)
+    if(!empty($username) && !empty($password)) {
+        // Query the database to check if the username and password match
+        $query = "SELECT * FROM admin WHERE username = '$username' LIMIT 1";
+        $result = mysqli_query($conn, $query);
+
+        if($result && mysqli_num_rows($result) > 0) {
+            $user_data = mysqli_fetch_assoc($result);
+            // Verify password
+            if( $user_data['password']) {
+                // Password is correct, set session variable
+                $_SESSION['users_id'] = $user_data['users_id'];
+                
+                header('Location: Admin.php');
+                exit();
+            } else {
+                // Invalid password
+                echo "Invalid password.";
+            }
+        } else {
+            // User not found
+            echo "Username not found.";
+        }
+    } else {
+        // Username or password is empty
+        echo "Please enter both username and password.";
+    }
+}
+?>
 
 
-<!-- html code -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,12 +56,10 @@
 <body>
     <header class="header">
     <div class="header-1">
-        <a href="#" ></i>ADMIN</a>
+        <a href="#" ></i>ADMIN LOGIN</a>
       
     </div>
-    <div class="header-2">
-        <a href=""></i>Users Login</a>
-    </div>
+    
     
   
     
@@ -51,11 +89,17 @@
                     <input type="submit" class="btn" name="submit" value="Login" required>
                     
                 </div>
+                <div class="container-back">
+                 <a href="login.php"></i>BACK</a>
+                </div>
                
 
             </form>
+            
         </div>
+        
     </div>
+    
     <!-- custom Js file link -->
     <script  src="JS/script.js">
         

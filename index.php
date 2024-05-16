@@ -39,7 +39,7 @@ if(isset($_SESSION['users_id'])) {
 <body>
     <header class="header">
         <div class="header-1">
-            <a href="#" class="logo"><i class="fas fa-book"> LIBRARY MANAGEMENT SYSTEM </i></a>
+            <a href="#" class="logo"><i class="fas fa-book"> BOOK MANAGEMENT SYSTEM </i></a>
             <form action="" class="search-form">
             <input type="search" name="" placeholder="search here..." id="search-box">
             <label for="search-box" class="fas fa-search"></label>

@@ -4,6 +4,9 @@ unset($_SESSION);
 
 session_destroy();
 
-
-
-header('location:login.php');
+echo'
+<script>
+alert("Logged Out");
+window.location.href = "login.php";
+</script>';
+exit;

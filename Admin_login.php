@@ -23,8 +23,13 @@ if(isset($_POST['submit'])) {
             if( $user_data['password']) {
                 // Password is correct, set session variable
                 $_SESSION['users_id'] = $user_data['users_id'];
+                echo'
+                <script>
+                alert("Logged In Sucessfully");
+                window.location.href = "Admin.php";
+                </script>';
                 
-                header('Location: Admin.php');
+                
                 exit();
             } else {
                 // Invalid password

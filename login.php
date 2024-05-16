@@ -24,7 +24,11 @@ if(isset($_POST['submit'])) {
                 // Password is correct, set session variable
                 $_SESSION['users_id'] = $user_data['users_id'];
                 // Redirect to index.php or any other page
-                header('Location: index.php');
+                echo'
+                <script>
+                alert("Logged In Sucessfully");
+                window.location.href = "index.php";
+                </script>';
                 exit();
             } else {
                 // Invalid password

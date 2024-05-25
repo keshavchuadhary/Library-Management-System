@@ -20,6 +20,16 @@ if(isset($_SESSION['users_id'])) {
         // Now $user_data contains user information
     }
 }
+
+// Check if the session variable for borrowing success exists
+if (isset($_SESSION['borrow_success']) && $_SESSION['borrow_success']) {
+    // Display the notification
+    echo '<div class="floating-notification">Book borrowed successfully!</div>';
+    
+    // Unset the session variable
+    unset($_SESSION['borrow_success']);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -104,9 +114,11 @@ if(isset($_SESSION['users_id'])) {
                 <a href="#"  class="box">
                     <div class="image">
                         <img src="Image/Book-6.png" alt="Book 6">
+                        
                     </div>
                     <div class="content">
                         <h3>new arrivals</h3>
+                        <p onclick="window.location.href='borrow.php?book_id=6';">Burrow</p>
                     </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
@@ -119,10 +131,11 @@ if(isset($_SESSION['users_id'])) {
                 </a>
                 <a href="#"  class="box">
                     <div class="image">
-                        <img src="Image/Book-7.png" alt="Book 6">
+                        <img src="Image/Book-7.png" alt="Book 7">
                     </div>
                     <div class="content">
                         <h3>new arrivals</h3>
+                        <p onclick="window.location.href='borrow.php?book_id=7';">Burrow</p>
                     </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
@@ -135,10 +148,11 @@ if(isset($_SESSION['users_id'])) {
                 </a>
                 <a href="#"  class="box">
                     <div class="image">
-                        <img src="Image/Book-8.png" alt="Book 6">
+                        <img src="Image/Book-8.png" alt="Book 8">
                     </div>
                     <div class="content">
                         <h3>new arrivals</h3>
+                        <p onclick="window.location.href='borrow.php?book_id=8';">Burrow</p>
                     </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
@@ -151,10 +165,11 @@ if(isset($_SESSION['users_id'])) {
                 </a>
                 <a href="#"  class="box">
                     <div class="image">
-                        <img src="Image/Book-9.png" alt="Book 6">
+                        <img src="Image/Book-9.png" alt="Book 9">
                     </div>
                     <div class="content">
                         <h3>new arrivals</h3>
+                        <p onclick="window.location.href='borrow.php?book_id=9';">Burrow</p>
                     </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
@@ -167,10 +182,11 @@ if(isset($_SESSION['users_id'])) {
                 </a>
                 <a href="#"  class="box">
                     <div class="image">
-                        <img src="Image/Book-10.png" alt="Book 6">
+                        <img src="Image/Book-10.png" alt="Book 10">
                     </div>
                     <div class="content">
                         <h3>new arrivals</h3>
+                        <p onclick="window.location.href='borrow.php?book_id=10';">Burrow</p>
                     </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>

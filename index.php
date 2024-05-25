@@ -20,7 +20,6 @@ if(isset($_SESSION['users_id'])) {
         // Now $user_data contains user information
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -29,54 +28,44 @@ if(isset($_SESSION['users_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Management System</title>
-    <!-- font awesome cdn link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
-    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Font Awesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <body>
+    <!-- Header Section -->
     <header class="header">
         <div class="header-1">
-            <a href="#" class="logo"><i class="fas fa-book"> BOOK MANAGEMENT SYSTEM </i></a>
+            <a href="#" class="logo"><i class="fas fa-book"></i> BOOK MANAGEMENT SYSTEM </a>
             <form action="" class="search-form">
-            <input type="search" name="" placeholder="search here..." id="search-box">
-            <label for="search-box" class="fas fa-search"></label>
+                <input type="search" name="" placeholder="search here..." id="search-box">
+                <label for="search-box" class="fas fa-search"></label>
             </form>
             <div class="icons">
                 <div id="search-btn" class="fas fa-search"></div>
-                
-                
-                <a href="login.php" class="fas fa-user" id="login-btn"></a>
                 <div class="icons">
-            <!-- Search button -->
-            <div id="search-btn" class="fas fa-search"></div>
-            <!-- Login or username -->
-            <?php if($user_logged_in): ?>
-                <p> <?php echo $user_data['username']; ?></p>
-                <a href="logout.php">Logout</a>
-            <?php else: ?>
-                <a href="login.php">Login</a>
-            <?php endif; ?>
-        </div>
-                
+                    <!-- Login or Username -->
+                    <?php if($user_logged_in): ?>
+                        <p><?php echo ($user_data['username']); ?></p>
+                        <a href="logout.php">Logout</a>
+                    <?php else: ?>
+                        <a href="login.php" class="fas fa-user" id="login-btn"></a>
+                    <?php endif; ?>
+                </div>
             </div> 
         </div>
         <div class="header-2">
             <nav class="navbar">
                 <a href="#Home">Home</a>
-                <!-- <a href="#Featured">Featured</a> -->
                 <a href="#Arrivals">Arrivals</a>
-                <!-- <a href="#Review">Review</a> -->
                 <a href="contact.php">Contact Us</a>
             </nav>
         </div>
-       </header>
-
-       <!-- header section end here -->
-       <!-- bottom navbar -->
-       <div class="header-2">
+    </header>
+    
+    <!-- Bottom Navbar -->
+    <!-- <div class="header-2">
         <nav class="bottom-navbar">
             <a href="#Home" class="fas fa-home"></a>
             <a href="#Featured" class="fas fa-list"></a>
@@ -84,46 +73,130 @@ if(isset($_SESSION['users_id'])) {
             <a href="#Review" class="fas fa-comment"></a>
             <a href="#blogs" class="fas fa-blog"></a>
         </nav>
-    </div>
-    <!-- home section starts -->
+    </div> -->
+    
+    <!-- Home Section -->
     <section class="home" id="home">
-      <div class="row">
-        <div class="content">
-            <h3>Top List</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                Esse ducimus explicabo vitae, autem, sit 
-                in modi error et distinctio 
-                quae magni incidunt soluta nam facere ad natus impedit aliquid 
-                reprehenderit?
-            </p>
-            <a href="#" class="btn">Read Now</a>
+        <div class="row">
+            <div class="content">
+                <h3>Top List</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse ducimus explicabo vitae, autem, sit in modi error et distinctio quae magni incidunt soluta nam facere ad natus impedit aliquid reprehenderit?</p>
+                <a href="#" class="btn">Read Now</a>
+            </div>
+            <div class=" swiper books-slider">
+                <div class="swiper-wrapper">
+                    <a href="#" class="swiper-slide"><img src="Image/Book-1.jpg" alt="Book 1"></a>
+                    <a href="#" class="swiper-slide"><img src="Image/Book-2.jpg" alt="Book 2"></a>
+                    <a href="#" class="swiper-slide"><img src="Image/Book-3.jpg" alt="Book 3"></a>
+                    <a href="#" class="swiper-slide"><img src="Image/Book-4.jpg" alt="Book 4"></a>
+                    <a href="#" class="swiper-slide"><img src="Image/Book-5.jpg" alt="Book 5"></a>
+                </div>
+                <!-- <img src="Image/stand.svg" class="stand" alt="Stand"> -->
+            </div>
         </div>
-
-        <div class="books-slider">
-           <div class="wrapper">
-            <a href="#"><img src="Image/Book-1.jpg" alt=""></a>
-            <a href="#"><img src="Image/Book-2.jpg" alt=""></a>
-            <a href="#"><img src="Image/Book-3.jpg" alt=""></a>
-            <a href="#"><img src="Image/Book-4.jpg" alt=""></a>
-            <a href="#"><img src="Image/Book-5.jpg" alt=""></a>
-           </div>
-           <img src="Image/stand.svg" class="stand" alt="">
-        </div>
-
-
-      </div>
-
     </section>
-    <!-- home section end -->
+    <!-- Arrivals section starts here -->
+    <section class="Arrivals" id="Arrivals">
+        <h1 class="heading"><span>new arrivals</span></h1>
+
+        <div class=" arrivals-slider">
+            <div class="wraper">
+                <a href="#"  class="box">
+                    <div class="image">
+                        <img src="Image/Book-6.png" alt="Book 6">
+                    </div>
+                    <div class="content">
+                        <h3>new arrivals</h3>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+
+                </a>
+                <a href="#"  class="box">
+                    <div class="image">
+                        <img src="Image/Book-7.png" alt="Book 6">
+                    </div>
+                    <div class="content">
+                        <h3>new arrivals</h3>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+
+                </a>
+                <a href="#"  class="box">
+                    <div class="image">
+                        <img src="Image/Book-8.png" alt="Book 6">
+                    </div>
+                    <div class="content">
+                        <h3>new arrivals</h3>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+
+                </a>
+                <a href="#"  class="box">
+                    <div class="image">
+                        <img src="Image/Book-9.png" alt="Book 6">
+                    </div>
+                    <div class="content">
+                        <h3>new arrivals</h3>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+
+                </a>
+                <a href="#"  class="box">
+                    <div class="image">
+                        <img src="Image/Book-10.png" alt="Book 6">
+                    </div>
+                    <div class="content">
+                        <h3>new arrivals</h3>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+
+                </a>
+            </div>
+        </div>
+    </section>
 
 
- 
+
+    <!-- Arrivals section ends here -->
 
 
 
-    <!-- custom Js file link -->
-    <script  src="JS/script.js">
-        
-    </script>
+
+
+
+
+    <!-- Custom JS File Link -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="JS/script.js"></script>
 </body>
 </html>

@@ -82,7 +82,7 @@ if(isset($_SESSION['users_id'])) {
     <div class="container">
         <form action="#" method="POST" class="contact-form">
             <div class="form-group">
-                <label for="name">Name:</label>
+                <label for="name">username:</label>
                 <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">

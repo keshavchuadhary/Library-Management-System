@@ -114,14 +114,12 @@ $(document).ready(function() {
 //         }
 //     }, 1000);
 // });
-document.addEventListener('DOMContentLoaded', function() {
-    // Get the notification element
-    var notification = document.querySelector('.floating-notification');
+// document.addEventListener('DOMContentLoaded', function() {
+//     // Get the notification element
+//     var notification = document.querySelector('.floating-notification');
 
-    // Remove notification after 1 second
-    setTimeout(function() {
-        if (notification) {
-            notification.remove();
-        }
-    }, 1000);
-});
+//     // Remove notification after 1 second
+//     setTimeout(function() {
+//         notification.
+//     }, 1000);
+// });

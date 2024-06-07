@@ -23,6 +23,7 @@ if(isset($_POST['submit'])) {
             if( $user_data['password']) {
                 // Password is correct, set session variable
                 $_SESSION['users_id'] = $user_data['users_id'];
+                $_SESSION['username'] = $username;
                 // Redirect to index.php or any other page
                 echo'
                 <script>

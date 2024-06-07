@@ -44,6 +44,16 @@ h1 {
     color: #fff;
     text-decoration: none;
 }
+.container .button-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.action-button {
+    margin: 10px 0;
+}
+
 
 /* Adjustments for mobile responsiveness */
 @media screen and (max-width: 768px) {

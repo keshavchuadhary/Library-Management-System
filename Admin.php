@@ -49,12 +49,11 @@ if(isset($_SESSION['users_id'])) {
  
        
     <div class="container">
-        
-        
         <div class="button-container">
             <button class="action-button" onclick="location.href='AddBook.php';">Add Book</button>
             <button class="action-button" onclick="location.href='Book.php';">Book Info</button>
             <button class="action-button" onclick="location.href='UserInfo.php';">User Info</button>
+            <button class="action-button" onclick="location.href='borrowed_book.php';">Borrowed Book Info</button>
         </div>
     </div>
 </body>

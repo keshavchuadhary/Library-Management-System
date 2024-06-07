@@ -24,7 +24,11 @@ if(isset($_SESSION['users_id'])) {
 // Check if the session variable for borrowing success exists
 if (isset($_SESSION['borrow_success']) && $_SESSION['borrow_success']) {
     // Display the notification
-    echo '<div class="floating-notification">Book borrowed successfully!</div>';
+    echo '
+    <script>
+    alert("Book borrowed successfully!");
+    </script>
+    ';
     
     // Unset the session variable
     unset($_SESSION['borrow_success']);
@@ -37,17 +41,25 @@ if (isset($_SESSION['borrow_success']) && $_SESSION['borrow_success']) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library Management System</title>
+    <title>Libr Management System</title>
     <!-- Font Awesome CDN Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <style>
+        #brw-btn{
+            background-color: blue;
+            color: white;
+            padding: 8px 12px;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Section -->
     <header class="header">
         <div class="header-1">
-            <a href="#" class="logo"><i class="fas fa-book"></i> BOOK MANAGEMENT SYSTEM </a>
+            <a href="#" class="logo"><i class="fas fa-book"></i> lib MANAGEMENT SYSTEM </a>
+        
             <form action="" class="search-form">
                 <input type="search" name="" placeholder="search here..." id="search-box">
                 <label for="search-box" class="fas fa-search"></label>
@@ -55,7 +67,7 @@ if (isset($_SESSION['borrow_success']) && $_SESSION['borrow_success']) {
             <div class="icons">
                 <div id="search-btn" class="fas fa-search"></div>
                 <div class="icons">
-                    <!-- Login or Username -->
+                    
                     <?php if($user_logged_in): ?>
                         <p><?php echo ($user_data['username']); ?></p>
                         <a href="logout.php">Logout</a>
@@ -118,7 +130,10 @@ if (isset($_SESSION['borrow_success']) && $_SESSION['borrow_success']) {
                     </div>
                     <div class="content">
                         <h3>new arrivals</h3>
-                        <p onclick="window.location.href='borrow.php?book_id=6';">Burrow</p>
+                        <form action="addBookNew.php" method="POST">
+                            <input type="number" name="book" value="1" id="">
+                            <button id="brw-btn">Borrow</button>
+                        </form>
                     </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
@@ -135,7 +150,10 @@ if (isset($_SESSION['borrow_success']) && $_SESSION['borrow_success']) {
                     </div>
                     <div class="content">
                         <h3>new arrivals</h3>
-                        <p onclick="window.location.href='borrow.php?book_id=7';">Burrow</p>
+                        <form action="addBookNew.php" method="POST">
+                            <input type="number" name="book" value="2" id="">
+                            <button id="brw-btn">Borrow</button>
+                        </form>
                     </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
@@ -152,7 +170,10 @@ if (isset($_SESSION['borrow_success']) && $_SESSION['borrow_success']) {
                     </div>
                     <div class="content">
                         <h3>new arrivals</h3>
-                        <p onclick="window.location.href='borrow.php?book_id=8';">Burrow</p>
+                        <form action="addBookNew.php" method="POST">
+                            <input type="number" name="book" value="3" id="">
+                            <button id="brw-btn">Borrow</button>
+                        </form>
                     </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
@@ -169,14 +190,17 @@ if (isset($_SESSION['borrow_success']) && $_SESSION['borrow_success']) {
                     </div>
                     <div class="content">
                         <h3>new arrivals</h3>
-                        <p onclick="window.location.href='borrow.php?book_id=9';">Burrow</p>
+                        <form action="addBookNew.php" method="POST">
+                            <input type="number" name="book" value="4" id="">
+                            <button id="brw-btn">Borrow</button>
+                        </form>
                     </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+                        <i class="fas fa-star"></i>
                     </div>
 
                 </a>
@@ -186,7 +210,10 @@ if (isset($_SESSION['borrow_success']) && $_SESSION['borrow_success']) {
                     </div>
                     <div class="content">
                         <h3>new arrivals</h3>
-                        <p onclick="window.location.href='borrow.php?book_id=10';">Burrow</p>
+                        <form action="addBookNew.php" method="POST">
+                            <input type="number" name="book" value="5" id="">
+                            <button id="brw-btn">Borrow</button>
+                        </form>
                     </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
